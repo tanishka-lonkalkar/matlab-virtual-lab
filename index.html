@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Lab - Double Integration</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:#162235;
+    color:white;
+    padding-top:20px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.menu li{
+    padding:18px;
+    cursor:pointer;
+}
+
+.menu li:hover{
+    background:#24344d;
+}
+
+/* CONTENT */
+.content{
+    flex:1;
+    padding:30px;
+    overflow-y:auto;
+}
+
+.section{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+}
+
+.active{
+    display:block;
+}
+
+input{
+    width:80px;
+    padding:8px;
+    margin:5px;
+}
+
+button{
+    padding:10px 15px;
+    background:#162235;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+#result{
+    margin-top:15px;
+    font-weight:bold;
+    color:green;
+}
+
+.question{
+    margin-bottom:20px;
+}
+
+.member-card{
+    background:#eef3f9;
+    padding:15px;
+    margin-bottom:10px;
+}
+
+.score{
+    font-size:20px;
+    color:green;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<div class="logo">
+<h2>Virtual Lab</h2>
+<p>Double Integration</p>
+</div>
+
+<ul class="menu">
+<li onclick="show('aim')">Aim</li>
+<li onclick="show('theory')">Theory</li>
+<li onclick="show('sim')">Simulation</li>
+<li onclick="show('mcq')">MCQs</li>
+<li onclick="show('mem')">Members</li>
+</ul>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- AIM -->
+<div id="aim" class="section active">
+<h1>Aim</h1>
+<p>To study and understand the concept of double integration and evaluate integrals of functions of two variables.</p>
+</div>
+
+<!-- THEORY -->
+<div id="theory" class="section">
+<h1>Theory</h1>
+<p>Double integration is used to integrate functions of two variables.</p>
+<p>General form: ∬ f(x,y) dA</p>
+<p>It is used to calculate area, volume and physical quantities.</p>
+</div>
+
+<!-- SIMULATION -->
+<div id="sim" class="section">
+<h1>Simulation</h1>
+
+<p>Evaluate ∬(ax + by + c)</p>
+
+<input id="a" placeholder="a">
+<input id="b" placeholder="b">
+<input id="c" placeholder="c">
+<br>
+
+<input id="x1" placeholder="x1">
+<input id="x2" placeholder="x2">
+<input id="y1" placeholder="y1">
+<input id="y2" placeholder="y2">
+
+<br><br>
+<button onclick="solve()">Solve</button>
+
+<div id="result"></div>
+</div>
+
+<!-- MCQs (SAME AS YOU GAVE) -->
+<div id="mcq" class="section">
+<h1>MCQ Test</h1>
+
+<div class="question">
+<h3>1. Evaluate the double integral.</h3>
+<input type="radio" name="q1" value="1"> 14/3
+<input type="radio" name="q1" value="0"> 15/3
+<input type="radio" name="q1" value="0"> 16/3
+<input type="radio" name="q1" value="0"> 4
+</div>
+
+<div class="question">
+<h3>2. Evaluate the double integral.</h3>
+<input type="radio" name="q2" value="1"> 32/15
+<input type="radio" name="q2" value="0"> 37/15
+<input type="radio" name="q2" value="0"> 39/15
+<input type="radio" name="q2" value="0"> 41/15
+</div>
+
+<div class="question">
+<h3>3. Evaluate the double integral.</h3>
+<input type="radio" name="q3" value="1"> 12/5
+<input type="radio" name="q3" value="0"> 10/5
+<input type="radio" name="q3" value="0"> 8/5
+<input type="radio" name="q3" value="0"> 6/5
+</div>
+
+<div class="question">
+<h3>4. Evaluate the double integral.</h3>
+<input type="radio" name="q4" value="0"> 9/4
+<input type="radio" name="q4" value="1"> 11/4
+<input type="radio" name="q4" value="0"> 13/4
+<input type="radio" name="q4" value="0"> 15/4
+</div>
+
+<div class="question">
+<h3>5. Evaluate the double integral.</h3>
+<input type="radio" name="q5" value="0"> 5/2
+<input type="radio" name="q5" value="0"> 7/2
+<input type="radio" name="q5" value="1"> 9/2
+<input type="radio" name="q5" value="0"> 11/2
+</div>
+
+<div class="question">
+<h3>6. Evaluate the double integral.</h3>
+<input type="radio" name="q6" value="1"> 3/1
+<input type="radio" name="q6" value="0"> 2/1
+<input type="radio" name="q6" value="0"> 4/1
+<input type="radio" name="q6" value="0"> 5/1
+</div>
+
+<div class="question">
+<h3>7. Evaluate the double integral.</h3>
+<input type="radio" name="q7" value="0"> 18/7
+<input type="radio" name="q7" value="1"> 20/7
+<input type="radio" name="q7" value="0"> 22/7
+<input type="radio" name="q7" value="0"> 24/7
+</div>
+
+<div class="question">
+<h3>8. Evaluate the double integral.</h3>
+<input type="radio" name="q8" value="0"> 6/3
+<input type="radio" name="q8" value="0"> 7/3
+<input type="radio" name="q8" value="1"> 8/3
+<input type="radio" name="q8" value="0"> 9/3
+</div>
+
+<div class="question">
+<h3>9. Evaluate the double integral.</h3>
+<input type="radio" name="q9" value="1"> 10/3
+<input type="radio" name="q9" value="0"> 11/3
+<input type="radio" name="q9" value="0"> 12/3
+<input type="radio" name="q9" value="0"> 13/3
+</div>
+
+<div class="question">
+<h3>10. Evaluate the double integral.</h3>
+<input type="radio" name="q10" value="0"> 14/5
+<input type="radio" name="q10" value="1"> 16/5
+<input type="radio" name="q10" value="0"> 18/5
+<input type="radio" name="q10" value="0"> 20/5
+</div>
+
+<button onclick="check()">Submit Test</button>
+
+<div id="score" class="score"></div>
+</div>
+
+<!-- MEMBERS -->
+<div id="mem" class="section">
+<h1>Project Members</h1>
+
+<div class="member-card">
+<h3>Tanishka Lonkalkar</h3>
+<p>Frontend Development & Simulation</p>
+</div>
+
+<div class="member-card">
+<h3>Chidvilasini Patil</h3>
+<p>Theory & Content Writing</p>
+</div>
+
+<div class="member-card">
+<h3>Bhumika Pandav</h3>
+<p>MCQs & Design Testing</p>
+</div>
+
+<h2>Guide Teacher</h2>
+<div class="member-card">
+<h3>Prof. Rajesh Talekar</h3>
+<p>Project Guide</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function solve(){
+
+let a=document.getElementById("a").value;
+let b=document.getElementById("b").value;
+let c=document.getElementById("c").value;
+
+let x1=document.getElementById("x1").value;
+let x2=document.getElementById("x2").value;
+let y1=document.getElementById("y1").value;
+let y2=document.getElementById("y2").value;
+
+let res = (a*(x2*x2-x1*x1)/2)*(y2-y1)
+        + (b*(y2*y2-y1*y1)/2)*(x2-x1)
+        + c*(x2-x1)*(y2-y1);
+
+document.getElementById("result").innerHTML =
+"Result = " + res.toFixed(3);
+}
+
+function check(){
+
+let score=0;
+
+for(let i=1;i<=10;i++){
+let q=document.querySelector('input[name=q'+i+']:checked');
+if(q && q.value=="1") score++;
+}
+
+document.getElementById("score").innerHTML =
+"Score = " + score + " / 10";
+}
+
+</script>
+
+</body>
+</html>
